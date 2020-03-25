@@ -184,3 +184,105 @@ process.stdin.once("data", (input ) =>
     process.exit();
 }
 );
+
+//Bài 11
+
+// Đề bài: Nhập vào 2 số nguyên, tìm và in ra số lớn nhất trong 2 số.
+// Đầu vào: Một dòng chứa 2 số nguyên cách nhau bởi dấu cách.
+// Đầu ra: Một số là số lớn nhất trong 2 số.
+// Ví dụ:
+// input:
+// 4 3
+// output:
+// 4
+
+process.stdin.once("data",(input) =>
+{
+    var inp = input.toString().split(' '); 
+    var n1 = parseInt(inp[0]);
+    var n2 = parseInt(inp[1]);
+    
+   if(n1 > n2)
+    {
+        console.log(n1);
+    }
+    else
+    {
+        console.log(n2);
+    }
+}
+);
+
+//Bài 12 + ( 13 )
+
+// Đề bài: Nhập vào 3 + ( 4 ) số nguyên, tìm và in ra số lớn nhất trong 3 + (4) số.
+// Đầu vào: Một dòng chứa 3+ (4) số nguyên cách nhau bởi dấu cách.
+// Đầu ra: Một số là số lớn nhất trong 3 + (4) số.
+// Ví dụ:
+// input:
+// 4 2 6
+// output:
+// 6
+
+process.stdin.once("data",(input) =>
+{
+    var inp = input.toString().split(' '); 
+  	var max = 0;
+	max = Math.max.apply(Math, inp);
+  	console.log(max);
+}
+);
+//Bài 19
+// Đề bài: Nhập vào một số nguyên dương n. In ra các số từ 1 đến n.
+// Đầu vào: Một số nguyên dương n duy nhất.
+// Đầu ra: Một dòng gồm các số cách nhau bằng dấu cách từ 1 đến n.
+// Ví dụ:
+// input:
+// 3
+// output:
+// 1 2 3
+
+process.stdin.once("data", (input) => 
+{
+    var n = parseInt(input.toString());
+    for(var i = 1; i <= n; i++)
+    {
+        process.stdout.write(i + " ");
+    }
+    process.exit();
+ });
+
+// Bài 20
+
+// Đề bài: Nhập vào một số nguyên duơng n. Tinh tổng các số từ 1 đến n.
+// Đầu vào: Một số nguyên dương n.
+// Đầu ra: Một số nguyên là tổng các số từ 1 đến n.
+// Ví dụ:
+// input:
+// 3
+// output:
+// 6
+
+//Cách 1
+process.stdin.once("data",(input) =>
+{
+    var inp = input.toString(); 
+    
+    var n1 = parseInt(inp);
+  	var res = (n1 * (n1+1)) / 2;
+  	console.log(res);
+}
+);
+
+//Cách2
+process.stdin.once("data", (input) => 
+{
+    var n = parseInt(input.toString());
+    var total = 0;
+    for(var i = 0; i <= n; i++)
+    {
+        total += i;
+    }
+    console.log(total);
+    process.exit();
+ });
