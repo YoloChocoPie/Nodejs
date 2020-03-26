@@ -608,6 +608,39 @@ process.stdin.once("data",(input)=>
 }
 );
 
+//Bài 28
+
+// Đề bài: Viết chương trình kiểm tra 1 số có là số hoàn hảo không? Số hoàn hảo là số nguyên dương có tổng các ước dương bằng 2 lần nó. Ví dụ số 6 có các ước 1, 2, 3, 6 và tổng 1 + 2 + 3 + 6 = 12 (bằng 2 lần 6).
+// Đầu vào: Một số nguyên duy nhất.
+// Đầu ra: "TRUE" nếu đó là số hoàn hảo, "FALSE" nếu ngược lại
+// Ví dụ:
+// input:
+// 6
+// output:
+// TRUE
+
+process.stdin.once("data",(input)=>
+{
+	var lines = input.toString().split('\n');
+    var n = parseInt(lines);
+    var sum =0;
+    for(var i = 1; i < n; i++)
+    {
+    	if( n % i == 0)
+        {
+        sum += i;
+        }
+     }
+     	if( sum == n )
+        {
+        console.log('TRUE');
+        }
+        else
+        {
+        console.log('FALSE');
+        }
+    process.exit();
+});
 
  // Bài 29
 //  Đề bài: Viết chương trình tính số thứ n của dãy fibonacci biết dãy f(n) = f(n-1) + f(n-2), n > 2 và f(1) = 1, f(2) = 1.
@@ -756,6 +789,60 @@ process.stdin.once("data",(input)=>
     process.exit();
 }
 );
+
+// Bài 42
+
+// Đề bài: Cho một mảng n số nguyên. Tính trung bình các số nguyên tố trong mảng.
+// Đầu vào: Dòng đầu tiên là số nguyên n. Dòng thứ 2 là mảng n số nguyên, các số cách nhau bởi dấu cách.
+// Đầu ra: Một số là trung bình các số nguyên tố. Kết quả làm tròn đến 2 chữ số thập phân. Nếu dãy không có số nguyên tố, in ra "NOT FOUND"
+// Ví dụ:
+// input:
+// 3
+// 4 3 2
+// output:
+// 2.50
+
+function isPrime(n)
+{
+  if ( n < 2 ) return false;
+  for (var i = 2; i <= Math.sqrt(n); i++)
+  {
+    if ( n % i == 0 )
+      return false;
+  }
+  return true;
+  
+}
+
+process.stdin.once("data",(input)=>
+{
+	var lines = input.toString().split('\n');
+    var m = parseInt(lines);
+    var n = parseInt(lines[0]);
+    var a = lines[1].split(' ').map(Number);
+    var sum = 0;
+    var cnt = 0;
+    for( var x of a)
+    {
+    	if (isPrime(x))
+    	{
+        	sum += x;
+            cnt++;
+    	}
+        
+    }
+    if( cnt == 0)
+    {
+    console.log("NOT FOUND");    
+    }
+    else
+    {
+    	var kq = sum / cnt;
+        console.log(kq.toFixed(2))
+    }
+    process.exit();
+});
+
 
 //Bài 43 + 44 (tính tổng)
 
