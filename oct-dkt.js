@@ -476,6 +476,101 @@ process.stdin.once("data", (input) =>
     process.exit();
  });
 
+ // Bài 24
+
+//  Đề bài: Viết chương trình nhập vào chiều cao, chiều ngang của hình chữ nhật. Vẽ hình chữ nhật đặc dấu sao (*) có kích thước đã nhập.
+//  Đầu vào: Một dòng gồm 2 số nguyên dương cách nhau bởi dấu cách lần lượt là chiều cao và chiều ngang.
+//  Đầu ra: HCN dấu sao.
+//  Ví dụ:
+//  input:
+//  2 3
+//  output:
+//  ***
+//  ***
+
+ process.stdin.once("data", (input)=>
+{
+	var items = input.toString().split(' ');
+    var a = parseInt(items[0]);
+    var b = parseInt(items[1]);
+    
+    for (var i = 1; i <= a; i++)
+    {
+    	for(var j = 1; j <=b; j++)
+        {
+        	process.stdout.write("*");
+        }
+        process.stdout.write("\n");
+    }
+    process.exit();
+});
+
+// Bài 25
+
+// Đề bài: Nhập vào một số nguyên x. Vẽ hình tam giác dấu (*) có dạng như ví dụ dưới đây.
+// Đầu vào: Một số nguyên
+// Đầu ra: Hình tam giác
+// Ví dụ:
+// input:
+// 3
+// output:
+// ***
+// **
+// *
+
+process.stdin.once("data", (input)=>
+{
+	var n = parseInt(input.toString());
+    
+    for (var i = 0; i <= n; i++)
+    {
+    	for(var j = n -1 ; j >= i; j--)
+        {
+        	process.stdout.write("*");
+        }
+        process.stdout.write("\n");
+    }
+    process.exit();
+});
+
+
+//Bài 26
+
+// Đề bài: Viết chương trình nhập vào chiều cao, chiều ngang của hình chữ nhật. Vẽ hình chữ nhật rỗng dấu sao (*) có kích thước đã nhập.
+// Đầu vào: Một dòng gồm 2 số nguyên dương n, m cách nhau bởi dấu cách lần lượt là chiều cao và chiều ngang. (2 < n,m)
+// Đầu ra: HCN dấu sao.
+// Ví dụ:
+// input:
+// 3 3
+// output:
+// ***
+// * *
+// ***
+
+process.stdin.once("data",(input)=>
+{
+	var n = input.toString().split(' ');
+    var rong = parseInt(n[0]);
+    var cao = parseInt(n[1]);
+    
+    for( var i =1; i<=rong; i++ )
+    {
+    	for( var j =1; j <=cao; j++)
+        {
+        	if ( i==1 || j == 1 || i == rong || j == cao)
+            {
+            	process.stdout.write("*");
+            }
+            else
+            {
+        		process.stdout.write(" ");
+        	}
+         }
+         process.stdout.write("\n");
+    }    
+    	process.exit();
+});
+
 //Bài 27 ( javaweed cmnr)
 
 // Đề bài: Viết chương trình kiểm tra 1 số có là số nguyên tố không? Số nguyên tố là số nguyên dương có duy nhất 2 ước là 1 và chính nó. Ví dụ số 2,3,5,…
@@ -596,6 +691,7 @@ process.stdin.once("data",(input)=>
 // 123
 // output:
 // 444
+
 
 process.stdin.once("data",(input)=>
 {
